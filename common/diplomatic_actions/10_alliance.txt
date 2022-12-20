@@ -337,6 +337,7 @@
 			}
 			
 			## CUSTOM STRATEGIES
+			# The US stays neutral while it has the manifest_destiny strategy
 			if = {
 				limit = {
 					has_strategy = ai_strategy_manifest_destiny
@@ -355,6 +356,29 @@
 			}
 			
 			## CUSTOM STRATEGIES
+			# Other countries mostly respect the US Monroe Doctrine
+			if = {
+				NOT = {
+					country_is_in_north_america = yes
+					country_is_in_central_america = yes
+					country_is_in_south_america = yes
+				}
+				exists = c:USA
+				c:USA = {
+					has_variable = monroe_doctrine
+				}
+				scope:target_country = {
+					OR = {
+						country_is_in_north_america = yes
+						country_is_in_central_america = yes
+						country_is_in_south_america = yes
+					}
+				}
+
+				multiply = 0.01
+			}
+
+			# The US stays neutral while it has the manifest_destiny strategy
 			if = {
 				limit = {
 					has_strategy = ai_strategy_manifest_destiny
