@@ -1314,3 +1314,258 @@ ai_strategy_unify_china = {
 		}		
 	}
 }
+
+## CUSTOM STRATEGIES
+
+# Strategy to make US go for its Manifest Destiny states
+ai_strategy_manifest_destiny = {
+	icon = "gfx/interface/icons/ai_strategy_icons/colonial_expansion.dds"
+	
+	type = diplomatic
+	
+	wanted_army_ratio = 200000 # 1 barrack per 200k incorporated population
+	wanted_navy_ratio = 500000 # 1 naval base per 500k coastal incorporated population
+	
+	undesirable_infamy_level = 50
+	unacceptable_infamy_level = 100
+	
+	ideological_opinion_effect_mult = 1.0
+	
+	wargoal_maneuvers_fraction = {
+		value = -0.1
+	}	
+	
+	# Don't care about joining other conflicts
+	diplomatic_play_neutrality = 100 # Added to base neutrality in diplomatic plays
+	diplomatic_play_boldness = 0 # Added to base boldness in diplomatic plays	
+	
+	# Added to value from default strategy
+	bravery = {
+		value = 0
+
+		# From vanilla 00_default_strategy
+		# USA should be confident against owners of their Manifest Destiny states
+		if = {
+			limit = {
+				has_journal_entry = je_manifest_destiny_mexico
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_CALIFORNIA
+							state_region = s:STATE_NEVADA
+							state_region = s:STATE_UTAH
+							state_region = s:STATE_ARIZONA
+							state_region = s:STATE_NEW_MEXICO
+							state_region = s:STATE_TEXAS
+							state_region = s:STATE_COLORADO
+							state_region = s:STATE_OKLAHOMA
+						}
+					}
+				}
+			}
+			add = 1
+		}
+	}
+	
+	# Added to value from default strategy
+	aggression = {
+		value = 0.25
+		
+		# From vanilla 00_default_strategy.txt
+		# USA should be extremely aggressive against owners of their Manifest Destiny states
+		if = {
+			limit = {
+				has_journal_entry = je_manifest_destiny_mexico
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_CALIFORNIA
+							state_region = s:STATE_NEVADA
+							state_region = s:STATE_UTAH
+							state_region = s:STATE_ARIZONA
+							state_region = s:STATE_NEW_MEXICO
+							state_region = s:STATE_TEXAS
+							state_region = s:STATE_COLORADO
+							state_region = s:STATE_OKLAHOMA
+						}
+					}
+				}
+			}
+			add = 100
+		}		
+	}
+	 
+	building_group_weights = {
+		bg_technology = 1.25
+	}
+
+	colonial_interest_ratio = {
+		value = 0.5
+	}
+	
+	secret_goal_weights = {
+		none = 0.0
+		conquer = 1.0
+	}
+	
+	wargoal_weights = {
+		return_state = 3.0
+		conquer_state = 1.0
+	}
+
+	secret_goal_scores = {
+		befriend = {
+			# From Lotus AI Strategy 1.5.1
+			if = {
+				limit = {
+					exists = c:USA
+					exists = c:GBR
+					root = c:USA					
+					scope:target_country = c:GBR
+					has_journal_entry = je_oregon
+	
+					NOT ={
+						AND = {
+							any_scope_state = { state_region = s:STATE_WASHINGTON }
+							any_scope_state = { state_region = s:STATE_IDAHO }
+							any_scope_state = { state_region = s:STATE_OREGON }
+						}
+					}
+				}
+	
+				add = 500
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_alaska
+					scope:target_state = {
+						state_region = s:STATE_ALASKA
+					}
+				}
+				add = 50
+			}
+			# END From Lotus AI Strategy 1.5.1
+		}
+		
+		conquer = {
+			if = {
+				limit = {
+					scope:target_country = {
+						any_scope_state = {
+							c:USA = {
+								has_claim = PREV
+							}
+						}
+					}
+				}
+				add = 200
+			}
+		}		
+	}
+
+	# From vanilla 00_default_strategy.txt
+	strategic_region_scores = {
+		region_pacific_coast = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 1000
+			}			
+		}
+		region_great_plains = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}
+		region_dixie = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}		
+		region_new_england = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}
+		region_canada = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}	
+		region_the_midwest = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}	
+		region_central_america = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}
+		region_brazil = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}	
+		region_andes = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}
+		region_la_plata = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}
+		region_gran_colombia = {
+			if = {
+				limit = {
+					has_variable = monroe_doctrine	
+				}
+				add = 100
+			}			
+		}		
+	}
+
+	possible = {
+		exists = c:USA
+		has_journal_entry = je_manifest_destiny_mexico
+	}
+	
+	weight = {
+		value = 1000
+	}
+}
+
+
+
+## END CUSTOM STRATEGIES

@@ -240,26 +240,6 @@ ai_strategy_default = {
 				}
 			}
 			add = 10
-		}
-
-		# USA should be confident against owners of their Manifest Destiny states
-		if = {
-			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
-						}
-					}
-				}
-			}
-			add = 1
 		}		
 
 		# Ethiopian Thunderdome
@@ -359,26 +339,6 @@ ai_strategy_default = {
 								owns_entire_state_region = STATE_MIDDLE_EGYPT
 								owns_entire_state_region = STATE_LOWER_EGYPT
 							}
-						}
-					}
-				}
-			}
-			add = 100
-		}
-
-		# USA should be extremely aggressive against owners of their Manifest Destiny states
-		if = {
-			limit = {
-				has_journal_entry = je_manifest_destiny_mexico
-				scope:target_country = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_CALIFORNIA
-							state_region = s:STATE_NEVADA
-							state_region = s:STATE_UTAH
-							state_region = s:STATE_ARIZONA
-							state_region = s:STATE_NEW_MEXICO
-							state_region = s:STATE_TEXAS
 						}
 					}
 				}
@@ -847,94 +807,6 @@ ai_strategy_default = {
 					has_journal_entry = je_opium_wars	
 				}
 				add = 1000
-			}			
-		}
-		region_pacific_coast = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 1000
-			}			
-		}
-		region_great_plains = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}
-		region_dixie = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}		
-		region_new_england = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}
-		region_canada = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}	
-		region_the_midwest = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}	
-		region_central_america = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}
-		region_brazil = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}	
-		region_andes = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}
-		region_la_plata = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
-			}			
-		}
-		region_gran_colombia = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine	
-				}
-				add = 100
 			}			
 		}		
 	}
