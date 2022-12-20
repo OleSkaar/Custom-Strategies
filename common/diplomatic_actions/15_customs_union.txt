@@ -334,6 +334,15 @@
 					value = -50
 				}
 			}
+
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 
 		# This is the acceptance score for the junior part of the customs union
@@ -529,6 +538,15 @@
 					value = -50
 				}
 			}
+
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 		
 		will_break = { 
@@ -555,6 +573,15 @@
 
 		propose_score = {
 			value = 10
+
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 
 		propose_break_score = {
@@ -647,6 +674,15 @@ join_customs_union = {
 
 		propose_score = {
 			value = 10
+			
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 
 		propose_break_score = {
@@ -735,6 +771,15 @@ change_customs_union = {
 
 		propose_score = {
 			value = 10
+
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 
 		propose_break_score = {
