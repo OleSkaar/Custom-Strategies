@@ -213,6 +213,34 @@ oregon.3 = {
 				save_scope_as = oregon_scope
 			}
 		}
+
+		## CUSTOM STRATEGIES
+		s:STATE_ALBERTA = {
+			add_homeland = anglo_canadian
+			random_scope_state = {
+				limit = {
+					AND = {
+						exists = c:USA
+						exists = c:HBC
+					}
+				}
+				set_state_owner = c:HBC
+			}
+		}
+		s:STATE_SASKATCHEWAN = {
+			add_homeland = anglo_canadian
+			random_scope_state = {
+				limit = {
+					AND = {
+						exists = c:USA
+						exists = c:HBC
+					}
+				}
+				set_state_owner = c:HBC
+			}
+		}
+		## END CUSTOM STRATEGIES
+
 		c:GBR = {
 			save_scope_as = britain_scope
 		}
@@ -266,6 +294,32 @@ oregon.3 = {
 				set_state_owner = c:USA
 			}
 		}
+		## CUSTOM STRATEGIES
+		s:STATE_ALBERTA = {
+			add_homeland = anglo_canadian
+			random_scope_state = {
+				limit = {
+					AND = {
+						exists = c:USA
+						exists = c:HBC
+					}
+				}
+				set_state_owner = c:HBC
+			}
+		}
+		s:STATE_SASKATCHEWAN = {
+			add_homeland = anglo_canadian
+			random_scope_state = {
+				limit = {
+					AND = {
+						exists = c:USA
+						exists = c:HBC
+					}
+				}
+				set_state_owner = c:HBC
+			}
+		}
+		## END CUSTOM STRATEGIES
 	}
 }
 
