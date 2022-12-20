@@ -334,7 +334,16 @@
 					value = "num_alliances"
 					multiply = -10
 				}					
-			}			
+			}
+			
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 
 		propose_score = {
@@ -343,7 +352,16 @@
 			add = {
 				value = scope:target_country.country_rank
 				multiply = 3
-			}			
+			}
+			
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					has_strategy = ai_strategy_manifest_destiny
+				}
+				multiply = 0.01
+			}
+			## END CUSTOM STRATEGIES
 		}
 
 		propose_break_score = {
