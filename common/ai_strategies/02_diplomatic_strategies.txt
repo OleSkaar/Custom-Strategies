@@ -935,6 +935,30 @@ ai_strategy_unify_italy = {
 	}	
 	
 	secret_goal_scores = {
+		## CUSTOM STRATEGIES
+		befriend = {
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+							THIS = c:FRA
+							THIS = c:PRU
+						}
+					}
+				}
+				add = 1000
+			}
+			if = {
+				scope:target_country = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+				}
+				add = 200
+			}
+		}
+		## END CUSTOM STRATEGIES
 		protect = {		
 			if = {
 				limit = {
@@ -948,7 +972,25 @@ ai_strategy_unify_italy = {
 					}
 				}
 				add = 1000
+			}
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					scope:target_country = {
+						is_revolutionary = yes
+						can_reach_target_country = yes
+						NOT = {
+							has_law = law_type:law_monarchy
+						}
+						OR = {
+							country_has_primary_culture = cu:north_italian
+							country_has_primary_culture = cu:south_italian
+						}
+					}
+				}
+				add = 1000
 			}		
+			## END CUSTOM STRATEGIES
 		}		
 		dominate = {		
 			if = {
@@ -988,7 +1030,21 @@ ai_strategy_unify_italy = {
 					}
 				}
 				add = 1000
-			}			
+			}
+			## CUSTOM STRATEGIES
+			if = {
+				limit = {
+					scope:target_country = {
+						scope:target_country = { 
+							any_scope_state = {
+								root = { has_claim = prev }
+							}	
+						}
+					}
+				}
+				add = 1000
+			}
+			## END CUSTOM STRATEGIES			
 		}		
 	}	
 
@@ -1003,7 +1059,21 @@ ai_strategy_unify_italy = {
 	}
 
 	weight = {
-		value = 1000	
+		## CUSTOM STRATEGIES
+		if = {
+			limit = {
+				ROOT = c:SAR
+			}
+			value = 1000	
+		}
+
+		if = {
+			limit = {
+				ROOT = c:SIC
+			}
+			value = 10
+		}
+		## END CUSTOM STRATEGIES
 	}
 }
 
@@ -1730,8 +1800,8 @@ ai_strategy_the_great_game = {
 					NOT = { has_law = law_type:law_autocracy }
 					NOT = { has_law = law_type:law_censorship}
 				}
-				add = 100
 			}
+			add = 100
 		}
 		
 		if = {
@@ -2188,8 +2258,8 @@ ai_strategy_the_second_empire = {
 		make_puppet = 1.5
 	}	
 		
-	possible = {
-		exists = c:FRA
+	exists = c:FRA
+	possible = {	THIS = c:PRU
 		ROOT = c:FRA
 	}
 
