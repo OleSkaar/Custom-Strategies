@@ -338,7 +338,10 @@
 			## CUSTOM STRATEGIES
 			if = {
 				limit = {
-					has_strategy = ai_strategy_manifest_destiny
+					OR = {
+						has_strategy = ai_strategy_manifest_destiny
+						has_strategy = ai_strategy_concert_of_europe
+					}
 				}
 				multiply = 0.01
 			}
@@ -543,6 +546,7 @@
 			if = {
 				limit = {
 					has_strategy = ai_strategy_manifest_destiny
+					has_strategy = ai_strategy_concert_of_europe
 				}
 				multiply = 0.01
 			}
@@ -578,6 +582,7 @@
 			if = {
 				limit = {
 					has_strategy = ai_strategy_manifest_destiny
+					has_strategy = ai_strategy_concert_of_europe
 				}
 				multiply = 0.01
 			}
@@ -679,6 +684,7 @@ join_customs_union = {
 			if = {
 				limit = {
 					has_strategy = ai_strategy_manifest_destiny
+					has_strategy = ai_strategy_concert_of_europe
 				}
 				multiply = 0.01
 			}
@@ -776,6 +782,7 @@ change_customs_union = {
 			if = {
 				limit = {
 					has_strategy = ai_strategy_manifest_destiny
+					has_strategy = ai_strategy_concert_of_europe
 				}
 				multiply = 0.01
 			}

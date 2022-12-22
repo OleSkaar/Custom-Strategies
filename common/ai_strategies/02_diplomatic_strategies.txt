@@ -1700,11 +1700,29 @@ ai_strategy_the_great_game = {
 				}
 			}
 			add = 1000
-		}	
+		}
+		
+		if = {
+			limit = {
+				# Aggressive against nearby liberal revolutions
+				scope:target_country = {
+					country_is_in_europe = yes
+					is_revolutionary = yes
+					can_reach_target_country = yes
+					NOT = { has_law = law_type:law_monarchy }
+					NOT = { has_law = law_type:law_autocracy }
+					NOT = { has_law = law_type:law_censorship}
+				}
+				add = 100
+			}
+		}
 		
 		if = {
 			limit = { 
-				scope:target_country = { country_is_in_europe = yes } 
+				scope:target_country = { 
+					country_is_in_europe = yes
+					is_revolutionary = no
+				 } 
 			}
 			multiply = 0.0
 		}
@@ -1847,6 +1865,152 @@ ai_strategy_the_great_game = {
 	}
 }
 
+ai_strategy_concert_of_europe = {
+	icon = "gfx/interface/icons/ai_strategy_icons/maintain_power_balance.dds"
+	
+	type = diplomatic
+	
+	wanted_army_ratio = 200000 # 1 barrack per 200k incorporated population
+	wanted_navy_ratio = 600000 # 1 naval base per 600k coastal incorporated population
+	
+	undesirable_infamy_level = 25
+	unacceptable_infamy_level = 50
+	
+	ideological_opinion_effect_mult = 3
+	
+	wargoal_maneuvers_fraction = {
+		value = -0.1
+
+		if = {
+			limit = {
+				scope:enemy_country = { 
+					OR = {
+						is_unification_candidate = GER
+						is_unification_candidate = ITA
+					}
+				 }
+			}
+			multiply = 0.0
+			add = 1
+		}
+	}	
+	
+	diplomatic_play_neutrality = 0 # Added to base neutrality in diplomatic plays
+	diplomatic_play_boldness = {
+		value = -25
+
+		if = {
+			limit = {
+				scope:enemy_country = { 
+					OR = {
+						is_unification_candidate = GER
+						is_unification_candidate = ITA
+					}
+				 }
+			}
+			add = 100
+		}
+	} 
+	
+	# Added to value from default strategy
+	bravery = {
+		value = -0.25
+
+		if = {
+			limit = {
+				scope:enemy_country = { 
+					OR = {
+						is_unification_candidate = GER
+						is_unification_candidate = ITA
+					}
+				 }
+			}
+			add = 2
+		}
+	}
+	
+	# Added to value from default strategy
+	aggression = {
+		value = 0
+
+		if = {
+			limit = {
+				# Aggressive against nearby liberal revolutions
+				scope:target_country = {
+					country_is_in_europe = yes
+					is_revolutionary = yes
+					can_reach_target_country = yes
+					NOT = { has_law = law_type:law_monarchy }
+					NOT = { has_law = law_type:law_autocracy }
+					NOT = { has_law = law_type:law_censorship}
+				}
+				add = 100
+			}
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}					
+			}
+			multiply = 0.1
+		}			
+	}
+	 
+	building_group_weights = {
+		bg_technology = 1.25
+	}
+	
+	secret_goal_weights = {
+		protect = 1.5
+		dominate = 1.5
+		reconcile = 1.5
+	}
+
+	secret_goal_scores = {
+		befriend = {
+			# Try to hold on to the Holy Alliance		
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+							THIS = c:AUS
+							THIS = c:PRU
+						}
+						has_law = law_type:law_monarchy
+					}
+				}
+				add = 100
+			}
+		}
+	}
+
+	colonial_interest_ratio = 0.0
+	
+	wargoal_weights = {
+		regime_change = 3.0
+		revoke_claim = 2.0
+		humiliation = 1.0
+	}
+
+	possible = {
+		always = yes
+		exists = c:AUS
+		ROOT = c:AUS
+	}
+	
+	weight = {
+		if = {
+			limit = {
+				ROOT = c:AUS
+			}
+			value = 1000
+		}		
+	}
+}
 
 
 ## END CUSTOM STRATEGIES
