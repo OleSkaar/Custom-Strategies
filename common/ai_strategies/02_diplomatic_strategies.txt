@@ -640,10 +640,10 @@ ai_strategy_unify_germany = {
 	ideological_opinion_effect_mult = 0.5
 	
 	wargoal_maneuvers_fraction = {
-		value = 0.1
+		value = 0.5 ## CUSTOM STRATEGIES
 	}		
 	
-	diplomatic_play_neutrality = 0 # Added to base neutrality in diplomatic plays
+	diplomatic_play_neutrality = 50 # Added to base neutrality in diplomatic plays
 	diplomatic_play_boldness = 50 # Added to base boldness in diplomatic plays		
 
 	# Added to value from default strategy
@@ -681,7 +681,7 @@ ai_strategy_unify_germany = {
 					}
 				}
 			}
-			add = 10
+			add = 100
 		}
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
@@ -714,7 +714,7 @@ ai_strategy_unify_germany = {
 					}
 					can_reach_target_state = yes				
 				}
-				add = 100
+				add = 1000
 			}
 		}
 		return_state = {
@@ -790,7 +790,24 @@ ai_strategy_unify_germany = {
 				}
 				add = 1000
 			}			
-		}		
+		}
+		## CUSTOM STRATEGIES
+		befriend = {
+			# Try to hold on to the Holy Alliance		
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+							THIS = c:AUS
+							THIS = c:PRU
+						}
+						has_law = law_type:law_monarchy
+					}
+				}
+				add = 100
+			}
+		}
+		## END CUSTOM STRATEGIES		
 	}	
 
 	wargoal_weights = {
