@@ -1635,6 +1635,218 @@ ai_strategy_defend_mexican_independence = {
 	}
 }
 
+ai_strategy_the_great_game = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+	
+	type = diplomatic
+	
+	wanted_army_ratio = 150000 # 1 barrack per 150k incorporated population
+	wanted_navy_ratio = 600000 # 1 naval base per 600k coastal incorporated population	
+	
+	undesirable_infamy_level = 75
+	unacceptable_infamy_level = 125
+	
+	ideological_opinion_effect_mult = 0.75
+	
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+
+		if = {
+			limit = {
+				scope:enemy_country = {
+					is_adjacent = ROOT
+					is_country_type = unrecognized
+					country_is_in_central_asia = yes
+					OR = {
+						any_scope_state = {
+							region = sr:region_balkans
+							region = sr:region_danubia
+							region = sr:region_anatolia
+							region = sr:region_caucasus
+						}
+					}
+				}
+			}
+			add = 0.35
+		}
+	}		
+	
+	diplomatic_play_neutrality = 75 # Added to base neutrality in diplomatic plays
+	diplomatic_play_boldness = 25 # Added to base boldness in diplomatic plays		
+	
+	# Added to value from default strategy
+	bravery = {
+		value = 0.25
+	}
+	
+	# Added to value from default strategy
+	aggression = {
+		value = 1
+		
+		if = {
+			limit = { 
+				scope:target_country = {
+					is_adjacent = ROOT
+					is_country_type = unrecognized
+					country_is_in_central_asia = yes
+					OR = {
+						any_scope_state = {
+							region = sr:region_balkans
+							region = sr:region_danubia
+							region = sr:region_anatolia
+							region = sr:region_caucasus
+						}
+					}
+				}
+			}
+			add = 1000
+		}	
+		
+		if = {
+			limit = { 
+				scope:target_country = { country_is_in_europe = yes } 
+			}
+			multiply = 0.0
+		}
+	}
+
+	colonial_interest_ratio = {
+		value = 0.5
+	}
+
+	strategic_region_scores = {
+		region_balkans = {
+			add = 1000
+		}
+		region_central_asia = {
+			add = 1000
+		}
+		region_east_china_sea = {
+			add = 500
+		}
+		region_japan = {
+			add = 100
+		}
+		region_south_china = {
+			add = 1
+		}
+		region_nile_basin = {
+			multiply = 0.0
+		}
+		region_north_africa = {
+			multiply = 0.0		
+		}
+		region_senegal = {
+			multiply = 0.0		
+		}
+		region_niger = {
+			multiply = 0.0		
+		}
+		region_congo = {
+			multiply = 0.0		
+		}
+		region_southern_africa = {
+			multiply = 0.0		
+		}
+		region_zanj = {
+			multiply = 0.0		
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 2
+	}
+	
+	secret_goal_weights = {
+		conquer = 1.5
+		protect = 0.5
+	}
+
+	secret_goal_scores = {
+		befriend = {
+			# Try to hold on to the Holy Alliance		
+			if = {
+				limit = {
+					scope:target_country = {
+						OR = {
+							THIS = c:AUS
+							THIS = c:PRU
+						}
+						has_law = law_type:law_monarchy
+					}
+				}
+				add = 200
+			}		
+		}		
+		conquer = {				
+			if = {
+				limit = {
+					scope:target_country = {
+						is_adjacent = ROOT
+						is_country_type = unrecognized
+						country_is_in_central_asia = yes
+						OR = {
+							any_scope_state = {
+								region = sr:region_balkans
+								region = sr:region_danubia
+								region = sr:region_anatolia
+								region = sr:region_caucasus
+							}
+						}
+					}
+				}
+				add = 1000
+			}				
+		}
+		protect = {
+			if = {
+				limit = {
+					scope:target_country = {
+						rel:orthodox = {
+							is_state_religion = PREV
+						}
+					}
+				}
+				add = 200
+			}
+		}
+		antagonize = {
+			if = {
+				limit = {
+					scope:target_country = {
+						is_adjacent = ROOT
+						is_country_type = unrecognized
+						country_is_in_central_asia = yes
+						OR = {
+							any_scope_state = {
+								region = sr:region_balkans
+								region = sr:region_danubia
+								region = sr:region_anatolia
+								region = sr:region_caucasus
+							}
+						}
+					}
+				}
+				add = 200
+			}
+		}		
+	}	
+
+	wargoal_weights = {
+		conquer_state = 1.5
+		liberate_country = 0.5
+		make_puppet = 0.5
+	}	
+		
+	possible = {
+		this = c:RUS
+	}
+
+	weight = {
+		value = 1000
+	}
+}
+
 
 
 ## END CUSTOM STRATEGIES
