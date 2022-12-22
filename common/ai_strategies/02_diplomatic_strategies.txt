@@ -1471,7 +1471,7 @@ ai_strategy_manifest_destiny = {
 				limit = {
 					has_variable = monroe_doctrine	
 				}
-				add = 1000
+				add = 100000
 			}			
 		}
 		region_great_plains = {
