@@ -1566,6 +1566,75 @@ ai_strategy_manifest_destiny = {
 	}
 }
 
+ai_strategy_defend_mexican_independence = {
+	icon = "gfx/interface/icons/ai_strategy_icons/maintain_power_balance.dds"
+
+	undesirable_infamy_level = 25
+	unacceptable_infamy_level = 50
+
+	revolution_aversion = 1
+
+	wargoal_maneuvers_fraction = 1
+	
+	type = diplomatic
+
+	bravery = {
+		# Generally Mexico doesn't like to back down. See: Spanish reconquest attempts, French intervention
+		value = 2
+
+		# Mexico shouldn't especially not back down to US claims 
+		if = {
+			limit = {
+				scope:enemy_country = {
+					has_journal_entry = je_manifest_destiny_mexico
+				}
+			}
+			add = 8
+		}
+	}
+
+	aggression = {
+		multiply = 0.1
+	}
+
+	secret_goal_scores = {
+		none = {
+			value = 2500
+		}
+
+		befriend = {
+			limit = {
+				if = {
+					any_scope_state = {
+						AND = {
+							NOT = {
+								scope:target_country = {
+									has_claim = PREV
+								}
+							}
+							OR = {
+								country_is_in_north_america = yes
+								country_is_in_central_america = yes
+								country_is_in_south_america = yes
+							}
+						}
+					}
+				}
+				add = 500
+			}
+		}
+	}
+	
+	possible = {
+		exists = c:MEX
+		this = c:MEX
+	}
+	
+	weight = {
+		value = 1000		
+	}
+}
+
 
 
 ## END CUSTOM STRATEGIES
