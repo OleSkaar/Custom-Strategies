@@ -1645,7 +1645,6 @@ ai_strategy_manifest_destiny = {
 
 	possible = {
 		exists = c:USA
-		has_journal_entry = je_manifest_destiny_mexico
 	}
 	
 	weight = {
@@ -1712,13 +1711,13 @@ ai_strategy_defend_mexican_independence = {
 		}
 	}
 	
+	exists = c:MEX
 	possible = {
-		exists = c:MEX
-		this = c:MEX
+		ROOT = c:MEX
 	}
-	
+
 	weight = {
-		value = 1000		
+		value = 1000				
 	}
 }
 
@@ -2073,6 +2072,16 @@ ai_strategy_concert_of_europe = {
 				add = 100
 			}
 		}
+		antagonize = {
+			if = {
+				limit = {
+					scope:target_country = {
+						is_unification_candidate = ITA
+					}
+				}
+				add = 500
+			}
+		}
 	}
 
 	colonial_interest_ratio = 0.0
@@ -2083,19 +2092,13 @@ ai_strategy_concert_of_europe = {
 		humiliation = 1.0
 	}
 
+	exists = c:AUS
 	possible = {
-		always = yes
-		exists = c:AUS
 		ROOT = c:AUS
 	}
-	
+
 	weight = {
-		if = {
-			limit = {
-				ROOT = c:AUS
-			}
-			value = 1000
-		}		
+		value = 1000				
 	}
 }
 
@@ -2259,7 +2262,7 @@ ai_strategy_the_second_empire = {
 	}	
 		
 	exists = c:FRA
-	possible = {	THIS = c:PRU
+	possible = {
 		ROOT = c:FRA
 	}
 
