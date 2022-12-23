@@ -42,17 +42,19 @@
 
 	complete = {
 		OR = {
-			c:GBR = {
+			AND = {
+				c:GBR = {
 					relations:ROOT >= relations_threshold:cordial
 				}
-			OR = {
-				custom_tooltip = {
-					text = oregon_tt
-					has_global_variable = oregon_trail_mapped
-				}
-				AND = {
-					owns_entire_state_region = STATE_MONTANA
-					owns_entire_state_region = STATE_WYOMING
+				OR = {
+					custom_tooltip = {
+						text = oregon_tt
+						has_global_variable = oregon_trail_mapped
+					}
+					AND = {
+						owns_entire_state_region = STATE_MONTANA
+						owns_entire_state_region = STATE_WYOMING
+					}
 				}
 			}
 			AND = {
