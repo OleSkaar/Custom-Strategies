@@ -108,6 +108,14 @@
  ai_strategy_unify_ethiopia_desc:0 "[COUNTRY.GetName] wants to unite the Ethiopian princes under their banner."
  ai_strategy_unify_china:0 "Unify China"
  ai_strategy_unify_china_desc:0 "[COUNTRY.GetName] wants to unite the Chinese warlords under their banner."
+ ai_strategy_manifest_destiny:0 "Manifest Destiny"
+ ai_strategy_manifest_destiny_desc:0 "[COUNTRY.GetName]" wants to take the North American land they see as theirs."
+ ai_strategy_defend_mexican_independence:0 "Defend Mexican Independence"
+ ai_strategy_defend_mexican_independence_desc:0 "[COUNTRY.GetName] wants to defend its independence against outside nations."
+ ai_strategy_the_great_game:0 "The Great Game"
+ ai_strategy_the_great_game_desc:0 "[COUNTRY.GetName] wants to dominate the Balkans and Central Asia, and try to aquire a warm water port."
+ ai_strategy_pax_britannica:0 "Pax Britannica"
+ ai_strategy_pax_britannica_desc:0 "[COUNTRY.GetName] wants to rule the waves and expand its colonial empire."
  
  ATTITUDE_DETAILS:0 "[COUNTRY.GetAttitudeTowards(TARGET_COUNTRY.Self).GetReasonsDesc]\n\n[COUNTRY.GetAttitudeTowards(TARGET_COUNTRY.Self).GetStrategicDesireDesc]"
   
